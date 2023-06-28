@@ -1,27 +1,39 @@
-const express=require('express');
-const {connection}=require("./config/db");
-const {userrouter}=require("./routes/userroute")
+const express = require('express');
+const { connection } = require("./config/db");
+const { userrouter } = require("./routes/userroute")
+const { app: PaymentApp } = require("./routes/Paymentroute");
+const { homerouter } = require("./routes/Homeroute");
+const { productRouter } = require("./routes/Productroute");
 
-const cors=require('cors');
+const { cartrouter}= require("./routes/cartroute");
+const {categoryRouter}=require("./routes/Categoryroute")
 
-const app=express();
+const cors = require('cors');
+
+const app = express();
 
 require('dotenv').config();
 
 app.use(express.json());
 
-app.use(cors ({
-    origin :"*"
+app.use(cors({
+    origin: "*"
 }))
 
-app.get("/",(req,res)=>{
+app.get("/", (req, res) => {
     res.send("welcome")
 })
 
 
-app.use("/users",userrouter);
 
-app.listen(process.env.port,async()=>{
+app.use("/home", homerouter);
+app.use("/users", userrouter);
+app.use("/category",categoryRouter);
+app.use("/products", productRouter);
+app.use("/cart", cartrouter);
+app.use("/payments", PaymentApp);
+
+app.listen(process.env.port, async () => {
     try {
         await connection
         console.log('Connected to Db');
@@ -29,4 +41,4 @@ app.listen(process.env.port,async()=>{
     } catch (error) {
         console.log("Trouble while connecting to Db");
     }
-})
+}) 

@@ -8,6 +8,8 @@ const bcrypt = require("bcrypt");
 
 const jwt = require("jsonwebtoken");
 
+require('dotenv').config();
+
 userrouter.get("/", async (req, res) => {
   try {
     let users = await UserModel.find();
@@ -19,7 +21,7 @@ userrouter.get("/", async (req, res) => {
 });
 
 userrouter.post("/register", async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password,role } = req.body;
   let data = await UserModel.find({ email });
   if (data.length != 0) {
     return res.json("Email Id Already Exists");
@@ -29,9 +31,9 @@ userrouter.post("/register", async (req, res) => {
     bcrypt.hash(password, 5, async (err, secure_password) => {
       if (err) {
         console.log(err);
-        res.json("Error while hashing the password")
+        res.json("Error while hashing the password") 
       } else {
-        const users = new UserModel({ name, email, password: secure_password });
+        const users = new UserModel({ name, email, password: secure_password,role });
         await users.save();
         res.status(201).json("User Registered");
       }
@@ -52,8 +54,8 @@ userrouter.post("/login", async (req, res) => {
     if (user_data.length > 0) {
       bcrypt.compare(password, hashed_password, (err, result) => {
         if (result) {
-          const token = jwt.sign({ userID: user_data[0]._id }, "nikhil", {expiresIn: "1h"});
-          console.log(token);
+          const token = jwt.sign({ userID: user_data[0]._id,role:user_data[0].role }, process.env.key, {expiresIn: "1h"});
+          // console.log(token);
           res.status(201).json({"msg":"User Successfully LoggedIn","token":token});
         } else {
           res.json({ msg: "Wrong Credentials" });
