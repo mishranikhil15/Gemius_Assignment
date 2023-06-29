@@ -1,7 +1,7 @@
 const express = require('express');
 const { connection } = require("./config/db");
 const { userrouter } = require("./routes/userroute")
-const { app: PaymentApp } = require("./routes/Paymentroute");
+const { payment } = require("./routes/Paymentroute");
 const { homerouter } = require("./routes/Homeroute");
 const { productRouter } = require("./routes/Productroute");
 
@@ -31,7 +31,7 @@ app.use("/users", userrouter);
 app.use("/category",categoryRouter);
 app.use("/products", productRouter);
 app.use("/cart", cartrouter);
-app.use("/payments", PaymentApp);
+app.use("/payments", payment);
 
 app.listen(process.env.port, async () => {
     try {

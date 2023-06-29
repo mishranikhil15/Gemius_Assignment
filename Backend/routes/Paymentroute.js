@@ -1,92 +1,38 @@
 const express = require('express');
-const app = express.Router();
 
-require('dotenv').config();
+const payment = express.Router;
 
-const { STRIPE_PUBLISHABLE_KEY, STRIPE_SECRET_KEY } = process.env;
+const bodyparser = require("body-parser");
+const Razorpay = require("razorpay");
+payment.use(require(bodyparser).json());
 
-const stripe = require('stripe')(STRIPE_SECRET_KEY)
+var instance = new Razorpay({
+    key_id: 'rzp_test_rN9fKC3IkvjvAS',
+    key_secret: 'LejbrZJMMXp6RF3aBI68znnP',
+});
 
-app.get("/", async(req,res)=>{
-
-    try {
-        
-        res.render('buy', {
-            key: STRIPE_PUBLISHABLE_KEY,
-            amount:25
-         })
-
-    } catch (error) { 
-        console.log(error.message);
-    }
-
-})
-
-app.post("/payment", async(req,res)=>{
-
-    try {
-
-    stripe.customers.create({
-        email: req.body.stripeEmail,
-        source: req.body.stripeToken,
-        name: 'Sandeep Sharma',
-        address: {
-            line1: '115, Vikas Nagar',
-            postal_code: '281001',
-            city: 'Mathura',
-            state: 'Uttar Pradesh',
-            country: 'India',
-        }
-    })
-    .then((customer) => {
- 
-        return stripe.charges.create({
-            amount: req.body.amount,     // amount will be amount*100
-            description: req.body.productName,
-            currency: 'INR',
-            customer: customer.id
-        });
-    })
-    .then((charge) => {
-        res.redirect("/success")
-    })
-    .catch((err) => {
-        res.redirect("/failure")
+payment.post("/create/orderId", (req, res) => {
+    var options = {
+        amount: req.body.amount,  // amount in the smallest currency unit
+        currency: "INR",
+        receipt: "rcp1"
+    };
+    instance.orders.create(options, function (err, order) {
+        console.log(order);
+        res.json({ orderId: order.id })
     });
-
-
-    } catch (error) {
-        console.log(error.message);
-    }
-
 })
 
-app.get("/success", async(req,res)=>{
+payment.post("/api/payment/verify", (req, res) => {
+    var { validatePaymentVerification, validateWebhookSignature } = require('./dist/utils/razorpay-utils');
+    validatePaymentVerification({ "order_id": razorpayOrderId, "payment_id": razorpayPaymentId }, signature, secret);
+    generated_signature = hmac_sha256(order_id + "|" + razorpay_payment_id, secret);
 
-    try {
-        
-        res.render('success');
-
-    } catch (error) {
-        console.log(error.message);
+    if (generated_signature == razorpay_signature) {
+        res.json("payment is successful")
     }
-
 })
-
-app.get("/failure", async(req,res)=>{
-
-    try {
-        
-        res.render('failure');
-
-    } catch (error) {
-        console.log(error.message);
-    }
-
-})
-
-
 
 module.exports={
-    app
+    payment
 }
