@@ -17,6 +17,19 @@ productRouter.get("/", async (req, res) => {
         console.log(error);
         res.json({ "msg": "Error while Getting the Product" })
     }
+ 
+})
+
+productRouter.get("/seller",authenticate,authorise(["Seller"]), async (req, res) => {
+let userID=req.body.userID
+    try {
+        const find_product = await Productmodel.find({seller_id:  userID});
+
+        res.json({ "msg": find_product })
+    } catch (error) {
+        console.log(error);
+        res.json({ "msg": "Error while Getting the Product" })
+    }
 
 })
 

@@ -61,51 +61,22 @@
     margin: auto;
   }
 
-  .product {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .product-image {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .product-name {
-    font-size: 24px;
-    margin-bottom: 5px;
-  }
-  
-  .product-rating {
-    font-size: 18px;
-    color: #777;
-    margin-bottom: 5px;
-  }
-  
-  .product-price {
-    font-size: 16px;
-    margin-bottom: 5px;
-  }
-  
-  .product-type,
-  .product-brand,
-  .product-flavors,
-  .product-sizes {
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 5px;
-  }
-  
-  #main{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 20px;
+  #totalAmount {
+    margin-top: 10px;
+    font-weight: bold;
   }
 
+  .total{
+    text-align: center;
+    margin:auto ;
+    font-size: larger;
+    font-size: 26px;
+    margin-top: 10%;
+  }
 
-  #seller_add{
-    display: none;
+  #rzp-button1{
+    width: 12.5rem;
+    padding: 1rem;
+    margin-left: 39rem;
+    margin-top: 5rem;
   }

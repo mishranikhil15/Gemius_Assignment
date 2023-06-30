@@ -35,8 +35,9 @@ async function login(obj){
             localStorage.setItem("token",(out.token));
             
             localStorage.setItem("name",out.name);
+            localStorage.setItem("role",out.role);
             alert("Login Successfull");
-            
+            window.location.reload();
            
         }
     } catch (error) {

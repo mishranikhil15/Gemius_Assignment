@@ -45,7 +45,7 @@ categoryRouter.get("/filter",async(req,res)=>{
 
 categoryRouter.get("/sort",async(req,res)=>{
     const query=req.query.value
-    // console.log(query);
+    // console.log(query); 
     try {
         if(query=="asc"){
             let sort_data=await Productmodel.find().sort({price:1})

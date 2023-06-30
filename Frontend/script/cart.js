@@ -17,18 +17,25 @@ if(token==undefined){
         let out = await fetch(`http://localhost:4200/cart`, {
             method: "GET",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization":localStorage.getItem("token")
             },
     
         });
         let res = await out.json();
-        console.log(res.msg.cart);
-        let store=res.msg.cart.map((ele)=>{
-            let obj={...ele.prodId,quantity:ele.quantity};
-               return obj
-        })
-        console.log(store);
-        display(store)
+        console.log(res);
+        if(res.msg){
+            let store=res.msg.cart.map((ele)=>{
+                let obj={...ele.prodId,quantity:ele.quantity};
+                   return obj
+            })
+            console.log(store);
+            localStorage.setItem("final_cart_data",JSON.stringify(store))
+            display(store)
+        }else{
+            alert("No data found in your cart")
+        }
+       
     }
     get_data()
     
@@ -99,18 +106,18 @@ if(token==undefined){
             quantity.appendChild(document.createTextNode(ele.quantity));
     
     
-            let btn = document.createElement("button");
-            btn.innerText = "Delete";
-            btn.className="del"
-            btn.addEventListener("click", () => {
-                // let arr=JSON.parse(localStorage.getItem("cart"))||[];
-                // console.log(ele);
-                // arr=[...arr,ele._id]
-                // localStorage.setItem("cart",JSON.stringify(arr));
+            // let btn = document.createElement("button");
+            // btn.innerText = "Delete";
+            // btn.className="del"
+            // btn.addEventListener("click", () => {
+            //     // let arr=JSON.parse(localStorage.getItem("cart"))||[];
+            //     // console.log(ele);
+            //     // arr=[...arr,ele._id]
+            //     // localStorage.setItem("cart",JSON.stringify(arr));
     
-                del_data_from_cart(ele._id)
+            //     del_data_from_cart(ele._id)
     
-            })
+            // })
     
             let plus_btn = document.createElement("button");
             plus_btn.innerText = "+";
@@ -123,14 +130,14 @@ if(token==undefined){
     
             let minus_btn = document.createElement("button");
             minus_btn.className="minus"
-            minus_btn.innerText = "-";
+            minus_btn.innerText = ele.quantity==1?"Delete":"-";
             minus_btn.addEventListener("click", () => {
                 
                 update_data_from_cart(ele._id)
                 
             })
     
-            div.append(img, name, rating, price, type, brand, flavors, sizes, quantity, plus_btn,minus_btn, btn);
+            div.append(img, name, rating, price, type, brand, flavors, sizes, quantity, plus_btn,minus_btn);
             main.append(div);
         });
     }
@@ -143,7 +150,7 @@ if(token==undefined){
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": token
+                "Authorization": localStorage.getItem("token")
             },
             body: JSON.stringify({ id })
         });
@@ -161,7 +168,7 @@ if(token==undefined){
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": token
+                "Authorization": localStorage.getItem("token")
             },
             body: JSON.stringify({ id })
         });
@@ -180,7 +187,7 @@ if(token==undefined){
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": token
+            "Authorization": localStorage.getItem("token")
           },
           body: JSON.stringify({id})
         });
