@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../style/cart.css" />
+    <link rel="stylesheet" href="../style/signup.css" />
   </head>
   <body>
     <div class="container">
@@ -19,10 +19,10 @@
           <ul>
             <li><a href="../index.html">Home</a></li>
             <li><a href="../html/category.html">Category</a></li>
-            <li><a href="../html/signup.html">Signup</a></li>
+            <li><a href="signup.html">Signup</a></li>
             <li><a id="login_name" href="../html/login.html">Login</a></li>
             <li><a href="../html/product.html">Product</a></li>
-            <li><a href="cart.html">Cart</a></li>
+            <li><a href="../html/cart.html">Cart</a></li>
             <li><a href="#">Account</a></li>
             <li><a href="#">Checkout</a></li>
           </ul>
@@ -30,12 +30,23 @@
       </header>
     </div>
     <div id="heading">
-      <h1>Data Added By User To Cart Page</h1>
+      <h1>New User Can Regsiter Here</h1>
     </div>
-    <div id="main">
-      <!-- Data from backend -->
-    </div>
+    <form id="form">
+        <label for="name">Name</label>
+        <input type="text" id="name">
+        <label for="email">Email</label>
+        <input type="text" id="email">
+        <label for="password">Password</label>
+        <input type="text" id="password">
+        <label for="role">Select Role</label>
+        <select id="role">
+            <option value="">Select Role</option>
+            <option value="Customer">Customer</option>
+            <option value="Seller">Seller</option>
+        </select>
+        <button id="btn" type="submit">Submit</button>
+    </form>
   </body>
 </html>
-
-<script src="../script/cart.js"></script>
+<script src="../script/signup.js"></script>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../style/cart.css" />
+    <link rel="stylesheet" href="../style/login.css" />
   </head>
   <body>
     <div class="container">
@@ -20,22 +20,26 @@
             <li><a href="../index.html">Home</a></li>
             <li><a href="../html/category.html">Category</a></li>
             <li><a href="../html/signup.html">Signup</a></li>
-            <li><a id="login_name" href="../html/login.html">Login</a></li>
+            <li><a id="login_name" href="login.html">Login</a></li>
             <li><a href="../html/product.html">Product</a></li>
-            <li><a href="cart.html">Cart</a></li>
+            <li><a href="../html/cart.html">Cart</a></li>
             <li><a href="#">Account</a></li>
             <li><a href="#">Checkout</a></li>
+            <li><a href="../html/logout.html">Logout</a></li>
           </ul>
         </nav>
       </header>
     </div>
     <div id="heading">
-      <h1>Data Added By User To Cart Page</h1>
+      <h1>Already Have An Account? Login In To Your Account...</h1>
     </div>
-    <div id="main">
-      <!-- Data from backend -->
-    </div>
+    <form id="signin">
+      <label for="email">Email</label>
+      <input type="text" id="email" />
+      <label for="password">Password</label>
+      <input type="text" id="password" />
+      <button type="submit">Submit</button>
+    </form>
   </body>
 </html>
-
-<script src="../script/cart.js"></script>
+<script src="../script/login.js"></script>

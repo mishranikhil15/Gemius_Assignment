@@ -78,6 +78,7 @@ cartrouter.patch("/UpdateCartProducts/:id", authenticate, async (req, res) => {
             find_user.cart.splice(existingProductIndex, 1);
           }
         }
+        
   
         // Save the updated cart
         await find_user.save();

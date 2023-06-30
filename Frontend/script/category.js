@@ -1,4 +1,11 @@
 const main = document.getElementById("main");
+const login_name=document.getElementById("login_name");
+const name1=(localStorage.getItem("name"));
+console.log(name1,login_name)
+
+if(name1!=undefined){
+    login_name.innerText=name1
+}
 
 async function get_data() {
     let out = await fetch(`http://localhost:4200/products/`, {
