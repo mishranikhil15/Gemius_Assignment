@@ -3,6 +3,7 @@ require('dotenv').config();
 
 const authenticate=(req,res,next)=>{
     const token=req.headers.authorization;
+    // console.log(token);
     try {
         if(token){
             const decoded=jwt.verify(token,process.env.key);
@@ -19,7 +20,7 @@ const authenticate=(req,res,next)=>{
             res.json({"msg":"Token not present,Please Login First"})
         }
     } catch (error) {
-        console.log(error.message);
+        console.log("nik",error.message);
         res.json({"msg":error.message})
     }
 }

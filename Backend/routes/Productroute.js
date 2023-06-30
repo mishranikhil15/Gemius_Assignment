@@ -99,7 +99,7 @@ productRouter.get("/sort",async(req,res)=>{
             let sort_data=await Productmodel.find().sort({price:1})
             res.json({"msg":sort_data})
         }else if(query=="desc"){
-            let sort_data=await Cartmodel.find().sort({price:-1})
+            let sort_data=await Productmodel.find().sort({price:-1})
             res.json({"msg":sort_data})
         }
         
@@ -110,18 +110,18 @@ productRouter.get("/sort",async(req,res)=>{
 })
 
 
-productRouter.get("/search",async(req,res)=>{
-    const query=req.query.value
-    console.log(query);
-    try {
-        let store=query.toLowerCase();
-        let search_data=await Productmodel.find({name:query});
-        res.json({"msg":search_data});  
-    } catch (error) {
-        console.log(error);
-        res.json({"msg":"Error while filtering the data"})
-    }
-})
+// productRouter.get("/search",async(req,res)=>{
+//     const query=req.query.value
+//     console.log(query);
+//     try {
+//         let store=query.toLowerCase();
+//         let search_data=await Productmodel.find({name:query});
+//         res.json({"msg":search_data});  
+//     } catch (error) {
+//         console.log(error);
+//         res.json({"msg":"Error while filtering the data"})
+//     }
+// })
 
 module.exports = {
     productRouter
@@ -140,3 +140,4 @@ module.exports = {
     
 //   }
   
+

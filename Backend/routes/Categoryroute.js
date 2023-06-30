@@ -5,6 +5,7 @@ const categoryRouter = express.Router();
 const { authenticate } = require("../middlewares/authentication");
 
 const { authorise } = require("../middlewares/authorization");
+const { Productmodel } = require("../models/ProductModel");
 
 
 categoryRouter.get("/", async (req, res) => {
@@ -23,17 +24,13 @@ categoryRouter.get("/", async (req, res) => {
 
 
 
-
-
-
-
 categoryRouter.get("/filter",async(req,res)=>{
     const query=req.query.value
     
-    let store=query.toLowerCase();
+    
 
     try {
-        let filt_data=await Productmodel.find({sizes:store});
+        let filt_data=await Productmodel.find({sizes:{'$regex':query,'$options':"i"}});
         res.json({"msg":filt_data})
         
     } catch (error) {
@@ -45,31 +42,32 @@ categoryRouter.get("/filter",async(req,res)=>{
 })
 
 
+
 categoryRouter.get("/sort",async(req,res)=>{
     const query=req.query.value
-    
+    // console.log(query);
     try {
         if(query=="asc"){
             let sort_data=await Productmodel.find().sort({price:1})
             res.json({"msg":sort_data})
         }else if(query=="desc"){
-            let sort_data=await Cartmodel.find().sort({price:-1})
+            let sort_data=await Productmodel.find().sort({price:-1})
             res.json({"msg":sort_data})
         }
         
     } catch (error) {
         console.log(error);
-        res.json({"msg":"Error while filtering the data"})
+        res.json({"msg":"Error while sorting the data"})
     }
 })
 
 
 categoryRouter.get("/search",async(req,res)=>{
     const query=req.query.value
-    console.log(query);
+    // console.log(query);
     try {
-        let store=query.toLowerCase();
-        let search_data=await Productmodel.find({name:query});
+        
+        let search_data=await Productmodel.find({name:{'$regex':query,'$options':"i"}});
         res.json({"msg":search_data});  
     } catch (error) {
         console.log(error);

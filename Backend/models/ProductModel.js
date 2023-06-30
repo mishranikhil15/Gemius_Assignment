@@ -12,7 +12,8 @@ const productSchema = mongoose.Schema({
     type: { type: String, require: false },
     brand: { type: String, require: false },
     flavors: { type: String, require: false },
-    sizes: { type: String, require: false }
+    sizes: { type: String, require: false },
+    quantity:{type:Number, required:false}
 
 })
 

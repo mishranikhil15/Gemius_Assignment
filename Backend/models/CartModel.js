@@ -13,11 +13,12 @@ const cartSchema = mongoose.Schema({
     // brand: { type: String, require: false },
     // flavors: { type: String, require: false },
     // sizes: { type: String, require: false }
-    cart:[{type:"ObjectId",ref:"products"}]
+     
+    cart:[{prodId:{type:"ObjectId",ref:"products"},quantity:{type:Number,default:1}}]
 })
 
 
-const Cartmodel = mongoose.model("cartdata", cartSchema)
+const Cartmodel = mongoose.model("cartdatas", cartSchema)
 
 
 module.exports = {

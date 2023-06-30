@@ -54,7 +54,7 @@ userrouter.post("/login", async (req, res) => {
     if (user_data.length > 0) {
       bcrypt.compare(password, hashed_password, (err, result) => {
         if (result) {
-          const token = jwt.sign({ userID: user_data[0]._id,role:user_data[0].role }, process.env.key, {expiresIn: "1h"});
+          const token = jwt.sign({ userID: user_data[0]._id,role:user_data[0].role }, process.env.key);
           // console.log(token);
           res.status(201).json({"msg":"User Successfully LoggedIn","token":token});
         } else {
