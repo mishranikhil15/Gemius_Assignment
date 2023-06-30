@@ -7,12 +7,14 @@ const userrouter = express.Router();
 const bcrypt = require("bcrypt");
 
 const jwt = require("jsonwebtoken");
+const { authenticate } = require("../middlewares/authentication");
 
 require('dotenv').config();
 
-userrouter.get("/", async (req, res) => {
+userrouter.get("/",authenticate, async (req, res) => {
+  let userID=req.body.userID
   try {
-    let users = await UserModel.find();
+    let users = await UserModel.find({_id:userID});
 
     res.status(201).json(users);
   } catch (error) {

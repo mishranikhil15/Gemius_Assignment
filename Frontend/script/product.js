@@ -5,6 +5,11 @@ const name1 = (localStorage.getItem("name"));
 const token = localStorage.getItem("token");
 const role = localStorage.getItem("role");
 
+if(token==undefined){
+    alert("Please Login First");
+    window.location.href="./login.html"
+}
+
 if (name1 != undefined) {
     login_name.innerText = name1
 }
@@ -21,6 +26,7 @@ async function get_data() {
     console.log(res.msg);
     display(res.msg)
 }
+
 
 async function get_seller_data() {
     let out = await fetch(`http://localhost:4200/products/seller`, {
