@@ -8,6 +8,19 @@ This is the documentation for an peanut-butter website developed using Node.js, 
    - [Frontend Link](https://adorable-babka-78a1a3.netlify.app/index.html)
    - [Backend Link](https://giant-pink-dirndl.cyclic.app/)
 
+### Home Page
+![Screenshot (50)](https://github.com/mishranikhil15/Gemius_Assignment/assets/112754845/67c02884-1581-4a60-ac85-39f5da964b40)
+
+### Categories Page
+![Screenshot (51)](https://github.com/mishranikhil15/Gemius_Assignment/assets/112754845/573f7766-870c-4276-aac1-8baab01fa0e8)
+
+### Signup Page
+![Screenshot (52)](https://github.com/mishranikhil15/Gemius_Assignment/assets/112754845/66e4d997-d93b-4fc0-abc1-d2d44fa55c83)
+
+### Payment Page
+![Screenshot (53)](https://github.com/mishranikhil15/Gemius_Assignment/assets/112754845/e49d9137-2266-4621-ad21-0681c99aef09)
+
+
 ### Prerequisites
 
 To run the e-commerce website, make sure you have the following software installed on your system:
