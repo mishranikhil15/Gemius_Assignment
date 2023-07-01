@@ -101,13 +101,13 @@ Cartmodel`: Represents a cart with attributes like user ID and products array.
 
 The e-commerce website relies on the following external packages and dependencies:
 
-- `Node.js` (v14.17.0): JavaScript runtime environment.
-- `Express.js` (v4.17.1): Web application framework for Node.js.
-- `MongoDB` (v4.4.5): NoSQL database.
-- `Mongoose` (v5.13.2): MongoDB object modeling tool.
-- `jsonwebtoken` (v8.5.1): JSON Web Token implementation for Node.js.
-- `bcryptjs` (v2.4.3): Library for hashing passwords.
-- `dotenv` (v10.0.0): Module for loading environment variables from a `.env` file.
-- `cors` (v2.8.5): Middleware for enabling Cross-Origin Resource Sharing.
+- `Node.js`: JavaScript runtime environment.
+- `Express.js`: Web application framework for Node.js.
+- `MongoDB`: NoSQL database.
+- `Mongoose`: MongoDB object modeling tool.
+- `jsonwebtoken`: JSON Web Token implementation for Node.js.
+- `bcryptjs`: Library for hashing passwords.
+- `dotenv`: Module for loading environment variables from a `.env` file.
+- `cors` : Middleware for enabling Cross-Origin Resource Sharing.
 - `razorpay` : External Package for Payment
 
