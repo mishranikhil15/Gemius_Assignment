@@ -9,16 +9,20 @@ This is the documentation for an peanut-butter website developed using Node.js, 
    - [Backend Link](https://giant-pink-dirndl.cyclic.app/)
 
 ### Home Page
-![Screenshot (50)](https://github.com/mishranikhil15/Gemius_Assignment/assets/112754845/67c02884-1581-4a60-ac85-39f5da964b40)
+
+![Screenshot (54)](https://github.com/mishranikhil15/PeanutButterWebsite/assets/112754845/b2cd3198-c884-41a3-8889-fd93bb036eea)
 
 ### Categories Page
-![Screenshot (51)](https://github.com/mishranikhil15/Gemius_Assignment/assets/112754845/573f7766-870c-4276-aac1-8baab01fa0e8)
+![Screenshot (55)](https://github.com/mishranikhil15/PeanutButterWebsite/assets/112754845/abe91db9-6cca-4013-a8b8-c8b5e40a831b)
+
 
 ### Signup Page
-![Screenshot (52)](https://github.com/mishranikhil15/Gemius_Assignment/assets/112754845/66e4d997-d93b-4fc0-abc1-d2d44fa55c83)
+![Screenshot (57)](https://github.com/mishranikhil15/PeanutButterWebsite/assets/112754845/7b2e91d6-02a8-42e3-871e-cf65a4ba3a28)
+
 
 ### Payment Page
-![Screenshot (53)](https://github.com/mishranikhil15/Gemius_Assignment/assets/112754845/e49d9137-2266-4621-ad21-0681c99aef09)
+![Screenshot (56)](https://github.com/mishranikhil15/PeanutButterWebsite/assets/112754845/1d311432-64ac-48e8-9ac1-9e971d323d81)
+
 
 
 ### Prerequisites
