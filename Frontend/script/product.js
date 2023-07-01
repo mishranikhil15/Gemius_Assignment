@@ -4,6 +4,7 @@ const name1 = (localStorage.getItem("name"));
 // console.log(name1,login_name)
 const token = localStorage.getItem("token");
 const role = localStorage.getItem("role");
+let BaseUrl=`https://giant-pink-dirndl.cyclic.app`
 
 if(token==undefined){
     alert("Please Login First");
@@ -15,7 +16,7 @@ if (name1 != undefined) {
 }
 
 async function get_data() {
-    let out = await fetch(`http://localhost:4200/products/`, {
+    let out = await fetch(`${BaseUrl}/products/`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -29,7 +30,7 @@ async function get_data() {
 
 
 async function get_seller_data() {
-    let out = await fetch(`http://localhost:4200/products/seller`, {
+    let out = await fetch(`${BaseUrl}/products/seller`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -227,7 +228,7 @@ function seller_display(res) {
 
 /// seller delete
 async function seller_delete_data(id) {
-    let out = await fetch(`http://localhost:4200/products/DeleteProducts/${id}`, {
+    let out = await fetch(`${BaseUrl}/products/DeleteProducts/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -252,7 +253,7 @@ sizes.addEventListener("change", () => {
         return;
     }
     async function get_filt_data1(value) {
-        let out = await fetch(`http://localhost:4200/category/filter?value=${value}`, {
+        let out = await fetch(`${BaseUrl}/category/filter?value=${value}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -277,7 +278,7 @@ sort.addEventListener("change", () => {
         return;
     }
     async function get_sort_data(value) {
-        let out = await fetch(`http://localhost:4200/category/sort?value=${value}`, {
+        let out = await fetch(`${BaseUrl}/category/sort?value=${value}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -294,7 +295,7 @@ sort.addEventListener("change", () => {
 /// search
 
 async function search_data(search) {
-    let out = await fetch(`http://localhost:4200/category/search?value=${search}`, {
+    let out = await fetch(`${BaseUrl}/category/search?value=${search}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -314,9 +315,9 @@ search_btn.addEventListener("click", () => {
 
 
 async function add_to_cart(id) {
-    let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDljNTk1NjFmNTliYzkyYmFkYWQ2OTIiLCJyb2xlIjoiU2VsbGVyIiwiaWF0IjoxNjg4MDQ3OTc3fQ.4BEJxf4aSFzut7Jjb-xr5hVkxKBMzeJ6JrnWktbnnQs";
+    
 
-    let out = await fetch("http://localhost:4200/cart/postcart", {
+    let out = await fetch(`${BaseUrl}/cart/postcart`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

@@ -1,7 +1,8 @@
 let form=document.querySelector("#form");
 const login_name=document.getElementById("login_name");
 const name1=(localStorage.getItem("name"));
-console.log(name1,login_name)
+// console.log(name1,login_name)
+let BaseUrl=`https://giant-pink-dirndl.cyclic.app`
 
 if(name1!=undefined){
     login_name.innerText=name1
@@ -27,7 +28,7 @@ form.addEventListener("submit",(e)=>{
 
 async function register(obj){
     try {
-        let res=await fetch(`http://localhost:4200/users/register`,{
+        let res=await fetch(`${BaseUrl}/users/register`,{
             body:JSON.stringify(obj),
             headers:{
                 "Content-Type":"application/json"

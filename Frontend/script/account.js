@@ -1,6 +1,8 @@
 const token = localStorage.getItem("token");
 const name1 = (localStorage.getItem("name"));
 let render = document.getElementById("render");
+let BaseUrl=`https://giant-pink-dirndl.cyclic.app`
+
 if (token == undefined) {
     console.log(token)
     alert("Please Login First");
@@ -13,7 +15,7 @@ if (token == undefined) {
 }
 
 async function get_data() {
-    let out = await fetch(`http://localhost:4200/users/`, {
+    let out = await fetch(`${BaseUrl}/users/`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

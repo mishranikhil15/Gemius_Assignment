@@ -1,6 +1,7 @@
 const main = document.getElementById("main");
 const login_name=document.getElementById("login_name");
 const name1=(localStorage.getItem("name"));
+let BaseUrl=`https://giant-pink-dirndl.cyclic.app`
 console.log(name1,login_name)
 
 if(name1!=undefined){
@@ -8,7 +9,7 @@ if(name1!=undefined){
 }
 
 async function get_data() {
-    let out = await fetch(`http://localhost:4200/products/`, {
+    let out = await fetch(`${BaseUrl}/products/`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -102,7 +103,7 @@ function display(res) {
         return;
     }
     async function get_filt_data1(value) {
-        let out = await fetch(`http://localhost:4200/category/filter?value=${value}`, {
+        let out = await fetch(`${BaseUrl}/category/filter?value=${value}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -127,7 +128,7 @@ function display(res) {
         return;
     }
     async function get_sort_data(value) {
-        let out = await fetch(`http://localhost:4200/category/sort?value=${value}`, {
+        let out = await fetch(`${BaseUrl}/category/sort?value=${value}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -144,7 +145,7 @@ function display(res) {
   /// search
 
   async function search_data(search) {
-    let out = await fetch(`http://localhost:4200/category/search?value=${search}`, {
+    let out = await fetch(`${BaseUrl}/category/search?value=${search}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"

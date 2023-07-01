@@ -3,7 +3,7 @@ let form=document.querySelector("#add");
 
 let token=localStorage.getItem("token");
 let edit_id=localStorage.getItem("edit_data")
-
+let BaseUrl=`https://giant-pink-dirndl.cyclic.app`
 
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
@@ -47,7 +47,7 @@ form.addEventListener("submit",(e)=>{
 /// add data
 async function add_seller_data(obj){
     try {
-        let res=await fetch(`http://localhost:4200/products/addProducts`,{
+        let res=await fetch(`${BaseUrl}/products/addProducts`,{
             body:JSON.stringify(obj),
             headers:{
                 "Content-Type":"application/json",
@@ -70,7 +70,7 @@ async function add_seller_data(obj){
 
 async function edit_seller_data(obj,edit_id){
     try {
-        let res=await fetch(`http://localhost:4200/products/EditProducts/${edit_id}`,{
+        let res=await fetch(`${BaseUrl}/products/EditProducts/${edit_id}`,{
             body:JSON.stringify(obj),
             headers:{
                 "Content-Type":"application/json",

@@ -2,6 +2,8 @@ const main = document.getElementById("main");
 const login_name=document.getElementById("login_name");
 const name1=(localStorage.getItem("name"));
 // console.log(name1,login_name)
+let BaseUrl=`https://giant-pink-dirndl.cyclic.app`
+
 const token=localStorage.getItem("token");
 if(token==undefined){
     console.log(token)
@@ -14,7 +16,7 @@ if(token==undefined){
     }
     
     async function get_data() {
-        let out = await fetch(`http://localhost:4200/cart`, {
+        let out = await fetch(`${BaseUrl}/cart`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -146,7 +148,7 @@ if(token==undefined){
     async function update_data_from_cart(id) {
         // let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDljNTk1NjFmNTliYzkyYmFkYWQ2OTIiLCJyb2xlIjoiU2VsbGVyIiwiaWF0IjoxNjg4MDQ3OTc3fQ.4BEJxf4aSFzut7Jjb-xr5hVkxKBMzeJ6JrnWktbnnQs";
     
-        let out = await fetch(`http://localhost:4200/cart/UpdateCartProducts/${id}`, {
+        let out = await fetch(`${BaseUrl}/cart/UpdateCartProducts/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -164,7 +166,7 @@ if(token==undefined){
     async function del_data_from_cart(id) {
         // let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDljNTk1NjFmNTliYzkyYmFkYWQ2OTIiLCJyb2xlIjoiU2VsbGVyIiwiaWF0IjoxNjg4MDQ3OTc3fQ.4BEJxf4aSFzut7Jjb-xr5hVkxKBMzeJ6JrnWktbnnQs";
     
-        let out = await fetch(`http://localhost:4200/cart/DeleteCartProducts/${id}`, {
+        let out = await fetch(`${BaseUrl}/cart/DeleteCartProducts/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -183,7 +185,7 @@ if(token==undefined){
     async function add_to_cart(id) {
         // let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDljNTk1NjFmNTliYzkyYmFkYWQ2OTIiLCJyb2xlIjoiU2VsbGVyIiwiaWF0IjoxNjg4MDQ3OTc3fQ.4BEJxf4aSFzut7Jjb-xr5hVkxKBMzeJ6JrnWktbnnQs";
       
-        let out = await fetch("http://localhost:4200/cart/postcart", {
+        let out = await fetch(`${BaseUrl}/cart/postcart`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
