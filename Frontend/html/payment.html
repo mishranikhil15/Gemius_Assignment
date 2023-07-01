@@ -36,51 +36,28 @@
 
     <div id="totalAmount"></div>
 
-    <!-- <button id="rzp-button1">Pay</button> -->
-    <!-- <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script>
-document.getElementById('rzp-button1').onclick =async function(e){
-    e.preventDefault();
-
-let response=await fetch("http://localhost:4200/payments/payment",{
-    method:"POST",
-    headers:{
-        "Content-Type":"application/json"
-    },
-    body:JSON.stringify({
-        amount:500,
-        
-    })
-})
-
-let orderData= await response.json();
-console.log(orderData)
-
-    var options = {
-        "key": 'rzp_test_rN9fKC3IkvjvAS', // Enter the Key ID generated from the Dashboard
-        "amount": "500", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-        "currency": "INR",
-        "order_id": orderData.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-        // "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
-       handler: function(response){
-        alert(response.razorpay_payment_id);
-        alert(response.razorpay_order_id);
-        alert(response.razorpay_signature);
-       },
-       
-    };
-    var rzp1 = new Razorpay(options);
-
-        rzp1.open();
-    }
-
-    </script> -->
+    
   </body>
 </html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <button id="rzp-button1">Pay with Razorpay Using Upi</button>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
+
+const token = localStorage.getItem("token");
+const name1 = (localStorage.getItem("name"));
+let render = document.getElementById("render");
+if (token == undefined) {
+    console.log(token)
+    alert("Please Login First");
+    window.location.href = "./login.html"
+
+} else {
+    if (name1 != undefined) {
+        login_name.innerText = name1
+    }
+}
+
   let final_data = JSON.parse(localStorage.getItem("final_cart_data"));
   console.log(final_data);
 

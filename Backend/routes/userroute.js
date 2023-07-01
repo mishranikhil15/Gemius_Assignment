@@ -22,6 +22,7 @@ userrouter.get("/",authenticate, async (req, res) => {
   }
 });
 
+
 userrouter.post("/register", async (req, res) => {
   const { name, email, password,role } = req.body;
   let data = await UserModel.find({ email });

@@ -80,14 +80,14 @@ function display(res) {
       sizes.appendChild(sizesSpan);
       sizes.appendChild(document.createTextNode(ele.sizes));
 
-      let quantity = document.createElement("h3");
-      quantity.className = "product-quantity";
-      let quantitySpan = document.createElement("span");
-      quantitySpan.innerText = "quantity: ";
-      quantity.appendChild(quantitySpan);
-      quantity.appendChild(document.createTextNode(ele.quantity));
+    //   let quantity = document.createElement("h3");
+    //   quantity.className = "product-quantity";
+    //   let quantitySpan = document.createElement("span");
+    //   quantitySpan.innerText = "quantity: ";
+    //   quantity.appendChild(quantitySpan);
+    //   quantity.appendChild(document.createTextNode(ele.quantity));
   
-      div.append(img, name, rating, price, type, brand, flavors, sizes,quantity);
+      div.append(img, name, rating, price, type, brand, flavors, sizes);
       main.append(div);
     });
   }
