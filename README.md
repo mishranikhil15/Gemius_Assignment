@@ -5,7 +5,7 @@
 This is the documentation for an peanut-butter website developed using Node.js, Express.js, and MongoDB. The website provides functionalities for user registration and authentication, product listing and management, shopping cart, and payment processing.
 
 ### Deployed Link
-   - [Frontend Link](https://adorable-babka-78a1a3.netlify.app/index.html)
+   - [Frontend Link](https://butter-website-five.vercel.app/)
    - [Backend Link](https://giant-pink-dirndl.cyclic.app/)
 
 ### Home Page
